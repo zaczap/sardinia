@@ -184,7 +184,7 @@ merged.plot.boxes = plot.data %>%
 	mutate(ai = map(data, extract_ai)) %>%
 	unnest() %>%
 	group_by(effect.bin, is.outlier) %>%
-	summarize(mean = mean(ai),
+	dplyr::summarize(mean = mean(ai),
 						n = length(ai),
 						sd = sd(ai),
 						std = sd/sqrt(length(ai))) %>%
